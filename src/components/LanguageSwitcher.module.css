@@ -83,3 +83,9 @@
   font-size: 0.95rem;
   color: var(--text-primary);
 }
+
+.flagIcon {
+  border-radius: 2px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.2);
+  display: block;
+}

@@ -5,13 +5,13 @@ import Script from 'next/script';
 import styles from './LanguageSwitcher.module.css';
 
 const languages = [
-  { code: 'en', flag: '🇬🇧', name: 'English' },
-  { code: 'pl', flag: '🇵🇱', name: 'Polski' },
-  { code: 'ro', flag: '🇷🇴', name: 'Română' },
-  { code: 'uk', flag: '🇺🇦', name: 'Українська' },
-  { code: 'lt', flag: '🇱🇹', name: 'Lietuvių' },
-  { code: 'es', flag: '🇪🇸', name: 'Español' },
-  { code: 'fr', flag: '🇫🇷', name: 'Français' },
+  { code: 'en', flag: 'gb', name: 'English' },
+  { code: 'pl', flag: 'pl', name: 'Polski' },
+  { code: 'ro', flag: 'ro', name: 'Română' },
+  { code: 'uk', flag: 'ua', name: 'Українська' },
+  { code: 'lt', flag: 'lt', name: 'Lietuvių' },
+  { code: 'es', flag: 'es', name: 'Español' },
+  { code: 'fr', flag: 'fr', name: 'Français' },
 ];
 
 export default function LanguageSwitcher() {
@@ -47,22 +47,37 @@ export default function LanguageSwitcher() {
   }, []);
 
   const switchLanguage = (langCode: string) => {
+    const domain = window.location.hostname;
+    const baseDomain = domain.split('.').slice(-2).join('.');
+
     if (langCode === 'en') {
-      // eslint-disable-next-line react-hooks/immutability
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      // eslint-disable-next-line react-hooks/immutability
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + window.location.hostname + '; path=/;';
+      // Clear cookies aggressively for English
+      const clearCookie = (d?: string) => {
+        let str = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        if (d) str += ` domain=${d};`;
+        document.cookie = str;
+      };
+
+      clearCookie();
+      clearCookie(domain);
+      clearCookie('.' + domain);
+      if (baseDomain !== domain) {
+        clearCookie(baseDomain);
+        clearCookie('.' + baseDomain);
+      }
+      
+      // Force set to /en/en just in case clearing fails
+      document.cookie = 'googtrans=/en/en; path=/;';
     } else {
-      // eslint-disable-next-line react-hooks/immutability
-      document.cookie = `googtrans=/en/${langCode}; path=/; domain=${window.location.hostname}`;
-      // eslint-disable-next-line react-hooks/immutability
       document.cookie = `googtrans=/en/${langCode}; path=/;`;
+      document.cookie = `googtrans=/en/${langCode}; path=/; domain=${domain}`;
     }
+    
     setIsOpen(false);
     window.location.reload();
   };
 
-  const activeFlag = languages.find(l => l.code === currentLang)?.flag || '🇬🇧';
+  const activeLang = languages.find(l => l.code === currentLang) || languages[0];
 
   return (
     <div className={styles.container} ref={dropdownRef}>
@@ -89,7 +104,12 @@ export default function LanguageSwitcher() {
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Select language"
         >
-          {activeFlag}
+          <img 
+            src={`https://flagcdn.com/w40/${activeLang.flag}.png`} 
+            width="20" 
+            alt="" 
+            className={styles.flagIcon}
+          />
         </button>
         {isOpen && (
           <div className={styles.menu}>
@@ -100,7 +120,13 @@ export default function LanguageSwitcher() {
                 className={`${styles.menuItem} ${currentLang === lang.code ? styles.active : ''}`}
                 title={lang.name}
               >
-                {lang.flag} <span className={styles.langName}>{lang.name}</span>
+                <img 
+                  src={`https://flagcdn.com/w40/${lang.flag}.png`} 
+                  width="20" 
+                  alt="" 
+                  className={styles.flagIcon}
+                />
+                <span className={styles.langName}>{lang.name}</span>
               </button>
             ))}
           </div>
