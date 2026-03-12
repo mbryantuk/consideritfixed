@@ -7,6 +7,7 @@ import { Metadata } from 'next';
 import { ChevronLeft, PlayCircle } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 import { renderMarkdown } from '@/lib/utils';
+import TTSPlayer from '@/components/TTSPlayer';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
@@ -46,6 +47,7 @@ export default async function KBArticlePage({ params }: { params: Promise<{ slug
           <header className={styles.articleHeader}>
             <span className={styles.categoryLabel}>{article.category}</span>
             <h1>{article.title}</h1>
+            <TTSPlayer text={`${article.title}. ${article.content}`} />
           </header>
 
           <div className={styles.articleBody}>

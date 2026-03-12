@@ -14,11 +14,34 @@ export default function ShareScreenClient() {
   const peerRef = useRef<PeerType>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const callRef = useRef<PeerType>(null);
+  const wakeLockRef = useRef<any>(null);
 
   useEffect(() => {
     // Cleanup on unmount
-    return () => stopSharing();
+    return () => {
+      stopSharing();
+      releaseWakeLock();
+    };
   }, []);
+
+  const requestWakeLock = async () => {
+    try {
+      if ('wakeLock' in navigator) {
+        wakeLockRef.current = await (navigator as any).wakeLock.request('screen');
+        console.log('Wake Lock is active');
+      }
+    } catch (err) {
+      console.error('Wake Lock request failed:', err);
+    }
+  };
+
+  const releaseWakeLock = () => {
+    if (wakeLockRef.current) {
+      wakeLockRef.current.release();
+      wakeLockRef.current = null;
+      console.log('Wake Lock released');
+    }
+  };
 
   const startSharing = async () => {
     try {
@@ -31,6 +54,9 @@ export default function ShareScreenClient() {
         audio: false 
       });
       streamRef.current = stream;
+
+      // Request wake lock so the PC doesn't sleep during support
+      requestWakeLock();
       
       // Handle native browser "Stop sharing" button
       stream.getVideoTracks()[0].onended = () => {
@@ -99,6 +125,7 @@ export default function ShareScreenClient() {
       peerRef.current.destroy();
       peerRef.current = null;
     }
+    releaseWakeLock();
     setCode('');
     setStatus('idle');
   };

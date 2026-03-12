@@ -1,0 +1,21 @@
+{
+  "name": "Consider IT Fixed",
+  "short_name": "IT Fixed",
+  "description": "Friendly, reliable local tech support in Felpham and Bognor Regis.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

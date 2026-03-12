@@ -27,6 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: '/',
     },
+    manifest: '/manifest.json',
     openGraph: {
       title: businessName,
       description,
