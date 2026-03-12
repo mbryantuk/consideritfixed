@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
     default-src 'self';
     script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://va.vercel-scripts.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.gstatic.com;
-    img-src 'self' blob: data: https://images.unsplash.com https://api.postcodes.io https://www.google.com https://www.gstatic.com https://translate.google.com https://fonts.gstatic.com;
+    img-src 'self' blob: data: https://flagcdn.com https://images.unsplash.com https://api.postcodes.io https://www.google.com https://www.gstatic.com https://translate.google.com https://fonts.gstatic.com;
     font-src 'self' https://fonts.gstatic.com;
     connect-src 'self' blob: https://api.postcodes.io https://translate.googleapis.com https://translate-pa.googleapis.com https://unpkg.com wss://*.peerjs.com https://*.peerjs.com stun:*;
     media-src 'self' blob: data:;
