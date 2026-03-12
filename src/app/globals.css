@@ -191,11 +191,11 @@ button, .btn {
 }
 
 /* Accessibility Modes */
-body.large-text {
+html.large-text {
   font-size: 1.375rem; /* ~22px equivalent */
 }
 
-body.high-contrast {
+html.high-contrast {
   --primary: #000000;
   --secondary: #0000FF;
   --secondary-hover: #00008B;

@@ -42,9 +42,9 @@ export default function AccessibilityToggles() {
     if (!initialized) return;
 
     if (isLargeText) {
-      document.body.classList.add('large-text');
+      document.documentElement.classList.add('large-text');
     } else {
-      document.body.classList.remove('large-text');
+      document.documentElement.classList.remove('large-text');
     }
     localStorage.setItem('a11y-large-text', String(isLargeText));
   }, [isLargeText, initialized]);
@@ -53,9 +53,9 @@ export default function AccessibilityToggles() {
     if (!initialized) return;
 
     if (isHighContrast) {
-      document.body.classList.add('high-contrast');
+      document.documentElement.classList.add('high-contrast');
     } else {
-      document.body.classList.remove('high-contrast');
+      document.documentElement.classList.remove('high-contrast');
     }
     localStorage.setItem('a11y-high-contrast', String(isHighContrast));
   }, [isHighContrast, initialized]);

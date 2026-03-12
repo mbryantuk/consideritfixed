@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: makeitwork-app
+    container_name: consideritfixed
     restart: unless-stopped
     logging:
       driver: "json-file"
@@ -14,7 +14,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - NEXTAUTH_URL=https://makeitwork.mbryantuk.uk
+      - NEXTAUTH_URL=https://consideritfixed.mbryantuk.uk
       - NEXTAUTH_URL_INTERNAL=http://localhost:3000
       - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-your_super_secret_key_change_me_in_production_12345}
       - DATABASE_URL=file:/app/data/dev.db
@@ -28,7 +28,7 @@ services:
 
   email-preview:
     image: node:20-alpine
-    container_name: makeitwork-emails
+    container_name: consideritfixed-emails
     restart: unless-stopped
     logging:
       driver: "json-file"

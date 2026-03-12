@@ -20,11 +20,14 @@ export function middleware(request: NextRequest) {
   // Content Security Policy
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://va.vercel-scripts.com https://translate.google.com https://translate.googleapis.com https://translate-pa.googleapis.com;
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://translate.googleapis.com https://www.gstatic.com;
     img-src 'self' blob: data: https://images.unsplash.com https://api.postcodes.io https://www.google.com https://www.gstatic.com https://translate.google.com https://fonts.gstatic.com;
     font-src 'self' https://fonts.gstatic.com;
-    connect-src 'self' https://api.postcodes.io https://translate.googleapis.com https://translate-pa.googleapis.com https://unpkg.com;
+    connect-src 'self' blob: https://api.postcodes.io https://translate.googleapis.com https://translate-pa.googleapis.com https://unpkg.com wss://*.peerjs.com https://*.peerjs.com stun:*;
+    media-src 'self' blob: data:;
+    worker-src 'self' blob:;
+    child-src 'self' blob:;
     frame-src 'self' https://www.youtube.com https://calendly.com;
     object-src 'none';
     base-uri 'self';
@@ -38,7 +41,7 @@ export function middleware(request: NextRequest) {
   response.headers.set('X-Frame-Options', 'DENY');
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
-  response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  response.headers.set('Permissions-Policy', 'camera=*, microphone=*, geolocation=(), display-capture=*');
   
   // Strict Transport Security (Only for HTTPS)
   if (process.env.NODE_ENV === 'production') {

@@ -57,10 +57,13 @@
 - **SEO Optimization:** Local SEO focus. Proper semantic HTML, meta tags, descriptive headings, alt text, and explicit OpenGraph tags tailored for West Sussex search queries.
 
 ## Technical Stack & Guidelines
-- **Framework:** Next.js (React) App Router for SSR, fast performance, and SEO.
+- **Framework:** Next.js (React) App Router for SSR, fast performance, and SEO. Uses `standalone` output for optimized Docker deployments.
+- **Security & Middleware:** Comprehensive CSP, HSTS, and XSS protection implemented in Next.js Middleware. Markdown is sanitized with `isomorphic-dompurify`.
 - **Authentication:** NextAuth.js with Passwordless Login (Magic Links via Email) to reduce login friction for non-technical users.
 - **Database:** SQLite with Prisma ORM for a simple, self-contained, and reliable data layer.
+- **Content Management (CMS):** A dynamic Site Settings CMS powers contact info, hero background images across the site, and the About page profile/content.
 - **Styling:** Custom Vanilla CSS (CSS Modules) to ensure a bespoke, highly accessible, and non-generic design.
-- **Code Quality:** Prioritize semantic HTML, clean code, and maintainability.
+- **Code Quality:** Prioritize semantic HTML, clean code, maintainability, and strict TypeScript/ESLint adherence (no raw `any` types, strict entity escaping).
+- **Performance:** Always use Next.js `<Image />` tags over raw HTML `<img>` tags for optimized, lazy-loaded images.
 - **Branding:** Refer to `BRANDING.md` for tone, color, typography, and styling guidelines.
 - **Docker Deployment:** Project is fully containerized with a `Dockerfile` and `docker-compose.yml` to support standalone environments with external volumes for persistent SQLite storage.

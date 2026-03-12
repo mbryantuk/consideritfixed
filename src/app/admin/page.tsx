@@ -102,6 +102,10 @@ export default async function AdminDashboard() {
               <span className={styles.statLabel}>Internal Docs</span>
               <span className={styles.statValue} style={{ fontSize: '1.1rem' }}>Wiki KB →</span>
             </Link>
+            <Link href="/admin/screen" className={`${styles.statCard} ${styles.linkCard}`} style={{ borderColor: 'var(--accent)', borderWidth: '2px' }}>
+              <span className={styles.statLabel}>Remote Support</span>
+              <span className={styles.statValue} style={{ fontSize: '1.1rem', color: 'var(--accent)' }}>Live Screen Share →</span>
+            </Link>
             <Link href="/admin/replies" className={`${styles.statCard} ${styles.linkCard}`}>
               <span className={styles.statLabel}>Templates</span>
               <span className={styles.statValue} style={{ fontSize: '1.1rem' }}>Quick Replies →</span>
