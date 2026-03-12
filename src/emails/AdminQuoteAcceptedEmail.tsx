@@ -1,0 +1,165 @@
+import {
+  Body,
+  Button,
+  Container,
+  Head,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  Heading,
+  Hr,
+  Html,
+  Img,
+  Preview,
+  Section,
+  Text,
+  Tailwind,
+} from "@react-email/components";
+import * as React from "react";
+
+interface AdminQuoteAcceptedEmailProps {
+  customerName: string;
+  ticketTitle: string;
+  ticketId: string;
+  action: "ACCEPTED" | "REJECTED";
+}
+
+export const AdminQuoteAcceptedEmail = ({
+  customerName,
+  ticketTitle,
+  ticketId,
+  action,
+}: AdminQuoteAcceptedEmailProps) => {
+  const previewText = `Quote ${action}: ${customerName} - ${ticketTitle}`;
+
+  return (
+    <Html>
+      <Head />
+      <Preview>{previewText}</Preview>
+      <Tailwind>
+        <Body style={main}>
+          <Container style={container}>
+            <Section style={header}>
+              <Img
+                src={`${process.env.NEXTAUTH_URL || "http://localhost:3000"}/logo.svg`}
+                width="200"
+                height="66"
+                alt="Consider IT Fixed"
+                style={logo}
+              />
+            </Section>
+            <Section style={content}>
+              <Text style={paragraph}>Hi Matt,</Text>
+              <Text style={paragraph}>
+                <strong>{customerName}</strong> has just <strong>{action}</strong> your quote for the following request:
+              </Text>
+              <Section style={detailsBox}>
+                <Text style={detailsTitle}>Issue Title:</Text>
+                <Text style={detailsContent}>{ticketTitle}</Text>
+              </Section>
+              <Section style={btnContainer}>
+                <Button
+                  style={button}
+                  href={`${process.env.NEXTAUTH_URL || "http://localhost:3000"}/admin/requests/${ticketId}`}
+                >
+                  View Request in Admin Dashboard
+                </Button>
+              </Section>
+              <Hr style={hr} />
+              <Text style={footer}>
+                System Alert - Consider IT Fixed Platform
+              </Text>
+            </Section>
+          </Container>
+        </Body>
+      </Tailwind>
+    </Html>
+  );
+};
+
+export default AdminQuoteAcceptedEmail;
+
+const main = {
+  backgroundColor: "#f6f9fc",
+  fontFamily:
+    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif',
+};
+
+const container = {
+  backgroundColor: "#ffffff",
+  margin: "0 auto",
+  padding: "20px 0 48px",
+  marginBottom: "64px",
+  border: "1px solid #e2e8f0",
+  borderRadius: "8px",
+};
+
+const header = {
+  backgroundColor: "#ffffff",
+  padding: "32px",
+  textAlign: "center" as const,
+  borderBottom: "1px solid #e2e8f0",
+};
+
+const logo = {
+  margin: "0 auto",
+};
+
+const content = {
+  padding: "40px",
+};
+
+const paragraph = {
+  fontSize: "16px",
+  lineHeight: "26px",
+  color: "#1e293b",
+};
+
+const detailsBox = {
+  backgroundColor: "#f8fafc",
+  borderRadius: "8px",
+  border: "1px solid #e2e8f0",
+  padding: "20px",
+  margin: "24px 0",
+};
+
+const detailsTitle = {
+  fontSize: "14px",
+  fontWeight: "700",
+  color: "#64748b",
+  textTransform: "uppercase" as const,
+  margin: "0 0 8px 0",
+};
+
+const detailsContent = {
+  fontSize: "18px",
+  fontWeight: "600",
+  color: "#1e293b",
+  margin: "0",
+};
+
+const btnContainer = {
+  textAlign: "center" as const,
+  margin: "32px 0",
+};
+
+const button = {
+  backgroundColor: "#0d9488",
+  borderRadius: "6px",
+  color: "#fff",
+  fontSize: "16px",
+  textDecoration: "none",
+  textAlign: "center" as const,
+  display: "inline-block",
+  padding: "12px 24px",
+  fontWeight: "bold",
+};
+
+const hr = {
+  borderColor: "#e2e8f0",
+  margin: "20px 0",
+};
+
+const footer = {
+  color: "#64748b",
+  fontSize: "14px",
+  lineHeight: "24px",
+};

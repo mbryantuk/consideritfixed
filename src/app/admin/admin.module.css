@@ -1,0 +1,247 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--primary);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcon {
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.nav span {
+  color: #CBD5E1;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.outlineBtn {
+  border: 1px solid #CBD5E1;
+  color: white;
+  background: transparent;
+  border-radius: var(--border-radius-sm);
+  padding: 8px 16px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.outlineBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.main {
+  flex: 1;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.dashboardHeader {
+  margin-bottom: var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.statsRow {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.statCard {
+  background-color: var(--bg-main);
+  padding: 12px 20px;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+
+.linkCard {
+  text-decoration: none;
+  border-color: var(--secondary);
+  background-color: var(--bg-main);
+  transition: all 0.2s;
+}
+
+.linkCard:hover {
+  border-color: var(--accent);
+  background-color: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.alertStat .statValue { color: #991B1B; }
+.infoStat .statValue { color: #3730A3; }
+.warningStat .statValue { color: #CA8A04; }
+
+.alertStat { border-color: #F87171; background-color: #FEF2F2; }
+.infoStat { border-color: #818CF8; background-color: #EEF2FF; }
+.warningStat { border-color: #FACC15; background-color: #FEFCE8; }
+
+.dashboardHeader h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 2.25rem;
+}
+
+.tableContainer {
+  background: var(--bg-main);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  overflow-x: auto;
+  border: 1px solid var(--border-light);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 1.25rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: #F8FAFC;
+}
+
+.truncate {
+  margin: 6px 0 0 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badges */
+.badge {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge.open {
+  background-color: #DBEAFE;
+  color: #1E40AF;
+}
+
+.badge.in_progress {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.badge.quoted {
+  background-color: #E0E7FF;
+  color: #3730A3;
+}
+
+.badge.closed {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+.actionBtn {
+  background-color: var(--secondary);
+  color: white;
+  padding: 8px 14px;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: background-color 0.2s, transform 0.1s;
+  display: inline-block;
+}
+
+.actionBtn:hover {
+  background-color: var(--secondary-hover);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.emergencyRow {
+  background-color: rgba(239, 68, 68, 0.05) !important;
+}
+
+.emergencyBadge {
+  background-color: #ef4444;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}

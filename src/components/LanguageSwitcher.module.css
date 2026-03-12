@@ -1,0 +1,85 @@
+.container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.toggleButton {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  padding: 6px 12px;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  min-height: 38px;
+}
+
+.toggleButton:hover {
+  background: var(--bg-secondary);
+  border-color: var(--secondary);
+}
+
+.toggleButton:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--bg-main);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+  z-index: 50;
+}
+
+.menuItem {
+  background: none;
+  border: none;
+  padding: 8px 12px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-align: left;
+  width: 100%;
+}
+
+.menuItem:hover {
+  background-color: var(--bg-secondary);
+}
+
+.menuItem:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+  background-color: var(--bg-tertiary);
+}
+
+.menuItem.active {
+  background-color: var(--bg-tertiary);
+  font-weight: bold;
+}
+
+.langName {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}

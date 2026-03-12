@@ -1,0 +1,203 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  background-color: var(--bg-main);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.container h3 {
+  margin-bottom: var(--spacing-md);
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.inputWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  background-color: var(--bg-secondary);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+}
+
+.button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--primary-hover);
+}
+
+.result {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+}
+
+.supported {
+  background-color: #DCFCE7;
+  color: #166534;
+  border: 1px solid #BBF7D0;
+}
+
+.supported svg {
+  color: #22C55E;
+}
+
+.unsupported {
+  background-color: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FDE68A;
+  flex-direction: column;
+}
+
+.unsupportedHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.unsupportedHeader svg {
+  color: #F59E0B;
+}
+
+.waitlistCard {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(146, 64, 14, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.waitlistForm p {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #92400E;
+}
+
+.waitlistInputGroup {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #FDE68A;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.mailIcon {
+  margin-left: 0.75rem;
+  color: #92400E;
+  opacity: 0.7;
+}
+
+.waitlistInput {
+  flex: 1;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+
+.waitlistInput:focus {
+  outline: none;
+}
+
+.waitlistBtn {
+  background-color: #92400E;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.waitlistBtn:hover {
+  opacity: 0.9;
+}
+
+.waitlistBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.waitlistSuccess {
+  color: #166534;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+}
+
+.remoteNote {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #92400E;
+}
+
+.error {
+  color: #DC2626;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .inputWrapper {
+    flex-direction: column;
+  }
+  
+  .button {
+    width: 100%;
+    justify-content: center;
+  }
+}

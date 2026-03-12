@@ -1,0 +1,46 @@
+services:
+  makeitwork:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: makeitwork-app
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXTAUTH_URL=https://makeitwork.mbryantuk.uk
+      - NEXTAUTH_URL_INTERNAL=http://localhost:3000
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-your_super_secret_key_change_me_in_production_12345}
+      - DATABASE_URL=file:/app/data/dev.db
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - EMAIL_FROM=${EMAIL_FROM}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - ALLOW_DEV_EMAILS=${ALLOW_DEV_EMAILS}
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY:-default-key-at-least-32-chars-long-!!!}
+    volumes:
+      - ./data:/app/data
+
+  email-preview:
+    image: node:20-alpine
+    container_name: makeitwork-emails
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3001"
+    command: sh -c "npm install && npm run email:dev"
+    environment:
+      - NODE_ENV=development
+      - HOSTNAME=0.0.0.0

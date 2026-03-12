@@ -1,0 +1,75 @@
+.container {
+  position: fixed;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.button {
+  background-color: var(--secondary);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 30px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.button:hover {
+  background-color: var(--secondary-hover);
+  transform: scale(1.05);
+  text-decoration: none;
+}
+
+.button:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 8px rgba(234, 88, 12, 0.2); /* Add subtle glow to accent the focus */
+}
+
+.whatsapp {
+  background-color: #25D366;
+  color: white;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.whatsapp:hover {
+  background-color: #128C7E;
+}
+
+.text {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    bottom: calc(64px + var(--spacing-md)); /* Position above StickyContactBar */
+    right: var(--spacing-sm);
+    gap: 8px;
+  }
+
+  .button {
+    padding: 10px 16px;
+  }
+
+  .text {
+    display: none; /* Only show icons on mobile for FloatingCTA to save space */
+  }
+
+  .whatsapp {
+    width: 44px;
+    height: 44px;
+  }
+}

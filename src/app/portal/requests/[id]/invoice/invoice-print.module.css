@@ -1,0 +1,205 @@
+.printContainer {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+.invoicePage {
+  background-color: white;
+  padding: 3rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid #1e293b;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.logo h1 {
+  margin: 0;
+  color: #1e293b;
+  font-size: 2.5rem;
+}
+
+.logo p {
+  margin: 0;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.invoiceMeta {
+  text-align: right;
+}
+
+.invoiceMeta h2 {
+  margin: 0 0 0.5rem 0;
+  color: #0d9488;
+  font-size: 2rem;
+}
+
+.invoiceMeta p {
+  margin: 0.25rem 0;
+  color: #475569;
+}
+
+.addressGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.addressGrid h3 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.addressGrid p {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.billTable {
+  margin-bottom: 3rem;
+}
+
+.billTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.billTable th {
+  text-align: left;
+  background-color: #f8fafc;
+  padding: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  color: #475569;
+}
+
+.billTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.amountCol {
+  text-align: right;
+  width: 120px;
+}
+
+.descText {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.billTable tfoot td {
+  padding-top: 1.5rem;
+  border-bottom: none;
+  font-size: 1.25rem;
+}
+
+.paymentInfo {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.paymentInfo h3 {
+  margin-top: 0;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.paymentFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.bankDetails {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.qrCode {
+  text-align: center;
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.qrLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-top: 0.25rem;
+  max-width: 120px;
+}
+
+.bankDetails p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer {
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 2rem;
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+.noPrint {
+  margin-bottom: 1rem;
+}
+
+.backLink {
+  color: #0d9488;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.printAction {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+@media print {
+  .printContainer {
+    padding: 0;
+    background-color: white;
+  }
+  .invoicePage {
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  .noPrint, .printAction {
+    display: none;
+  }
+  body {
+    background-color: white;
+  }
+}
+
+.loading, .error {
+  padding: 4rem;
+  text-align: center;
+  font-size: 1.25rem;
+}

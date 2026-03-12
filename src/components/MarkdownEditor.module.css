@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.tab {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  color: var(--secondary);
+  background-color: var(--bg-main);
+  border-bottom: 2px solid var(--secondary);
+}
+
+.editorArea {
+  min-height: 300px;
+}
+
+.textarea {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+}
+
+.preview {
+  padding: 1rem;
+  min-height: 300px;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+.preview h1, .preview h2, .preview h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.preview img {
+  display: block;
+  margin: 1.5rem auto;
+}
+
+.helpText {
+  padding: 8px 1rem;
+  background-color: var(--bg-secondary);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+}

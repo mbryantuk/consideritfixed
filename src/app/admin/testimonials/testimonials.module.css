@@ -1,0 +1,103 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg-secondary);
+}
+
+.main {
+  flex: 1;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.card {
+  background-color: var(--bg-main);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: opacity 0.2s;
+}
+
+.unapproved {
+  opacity: 0.7;
+  border-style: dashed;
+  background-color: #FEF2F2;
+}
+
+.cardHeader {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.stars {
+  color: #FBBF24;
+}
+
+.text {
+  font-style: italic;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+  flex-wrap: wrap;
+}
+
+.btnApprove, .btnRevoke, .btnFeature, .btnUnfeature, .btnDelete {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btnApprove { background-color: #0D9488; color: white; }
+.btnRevoke { background-color: #94A3B8; color: white; }
+.btnFeature { background-color: #FBBF24; color: #92400E; }
+.btnUnfeature { border-color: #FBBF24; color: #92400E; background: transparent; }
+.btnDelete { background-color: #DC2626; color: white; }
+
+.empty {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background-color: var(--bg-main);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-light);
+}
+
+.mutedText {
+  color: var(--text-muted);
+}

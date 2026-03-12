@@ -1,0 +1,293 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.logo a {
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoIcon {
+  color: var(--secondary);
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.nav a:not(.btn-primary) {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.nav a:not(.btn-primary):hover {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.main {
+  flex: 1;
+}
+
+.topContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-sm) var(--spacing-lg);
+}
+
+.hero {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), var(--hero-bg, url('/images/felpham-seafront.webp'));
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid var(--border-light);
+}
+
+[data-theme='dark'] .hero {
+  background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.7)), var(--hero-bg, url('/images/felpham-seafront.webp'));
+  background-size: cover;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.portrait {
+  border-radius: 50%;
+  border: 4px solid var(--secondary);
+  box-shadow: var(--shadow-lg);
+}
+
+.imageSection {
+  margin: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.seafrontImage {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  height: auto;
+}
+
+.imageCaption {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.hero h1 {
+  margin-bottom: var(--spacing-sm);
+  font-size: 3rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.videoSection {
+  padding: 0 var(--spacing-lg) var(--spacing-xl);
+  max-width: 1000px;
+  margin: -2rem auto 0;
+  position: relative;
+  z-index: 2;
+}
+
+.videoContainer {
+  aspect-ratio: 16 / 9;
+  background-color: var(--bg-tertiary);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--bg-main);
+}
+
+.videoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('/images/matt-portrait.webp');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.videoPlaceholder p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.placeholderNote {
+  font-size: 0.9rem !important;
+  opacity: 0.8;
+  font-weight: 400 !important;
+}
+
+.playButton {
+  width: 80px;
+  height: 80px;
+  background-color: var(--secondary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-md);
+  font-size: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease;
+}
+
+.videoContainer:hover .playButton {
+  transform: scale(1.1);
+  background-color: var(--secondary-hover);
+}
+
+.contentSection {
+  padding: var(--spacing-xl) var(--spacing-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.textContent {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.textContent h2 {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.textContent p {
+  margin-bottom: var(--spacing-md);
+}
+
+.approachList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+.approachList li {
+  margin-bottom: var(--spacing-sm);
+  padding-left: 32px;
+  position: relative;
+}
+
+.approachList li::before {
+  content: "✓";
+  color: var(--secondary);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.contactCard {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-light);
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.contactCard h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contactCard p {
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer {
+  padding: var(--spacing-lg);
+  text-align: center;
+  background-color: var(--bg-main);
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+.footerLinks {
+  margin-top: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.footerLinks a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.footerLinks a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+  .nav {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+  .nav a:not(.btn-primary) {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+}

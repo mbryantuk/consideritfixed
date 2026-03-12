@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="90" fill="#f1f5f9"/>
+  <!-- Shield -->
+  <path d="M100 40 L155 55 L155 105 C155 140 120 165 100 175 C80 165 45 140 45 105 L45 55 Z" fill="#ffffff" stroke="#0D9488" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Big Checkmark -->
+  <polyline points="75,105 95,125 130,85" fill="none" stroke="#EA580C" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Decorative stars -->
+  <circle cx="165" cy="40" r="6" fill="#EA580C"/>
+  <circle cx="35" cy="80" r="5" fill="#0D9488"/>
+  <circle cx="145" cy="155" r="4" fill="#0D9488"/>
+</svg>

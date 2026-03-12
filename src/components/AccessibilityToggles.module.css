@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.toggle {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-height: 38px;
+}
+
+.toggle:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--secondary);
+}
+
+.toggle.active {
+  background-color: var(--secondary);
+  color: white;
+  border-color: var(--secondary);
+}
+
+.label {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .label {
+    display: inline;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    gap: 4px;
+  }
+  .toggle {
+    padding: 6px 8px;
+  }
+}
